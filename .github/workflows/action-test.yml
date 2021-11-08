@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: check cmd
+        if: github.event_name == 'pull_request'
         run: mkdir artifact && echo test >> artifact/test.txt && echo ${{ github.job }} && echo GITHUB_JOB=${GITHUB_JOB}
       - name: Upload install file
         uses: actions/upload-artifact@v2
