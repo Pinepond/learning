@@ -12,9 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: check cmd
-        run: ls -al
+        run: mkdir artifact && echo test >> artifact/test.txt
       - name: Upload install file
         uses: actions/upload-artifact@v2
         with:
-          name: amazonlinux2
-          path: web-dist/target/lena-work/
+          name: upload-test
+          path: artifact/
